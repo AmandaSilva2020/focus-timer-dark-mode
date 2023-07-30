@@ -1,0 +1,136 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --primary-color: #fff;
+  --secondary-color:#121214;
+  --btn-bg:#323238;
+  --btn-bg-active: #0A3442;
+  --icon-color: #C4C4CC;
+  
+  font-size: clamp(40%, 1% + 2vw, 62.5%);
+}
+
+html.light-mode .ph-sun, html:not(.light-mode) .ph-moon{
+  display: none;
+}
+
+html.light-mode{
+  --primary-color: #323238;
+  --secondary-color: #fff;
+  --btn-bg-active: #02799D;
+  --btn-bg:#E1E1E6;
+  --icon-color: #323238;
+}
+
+button{
+  color: var(--icon-color);
+}
+
+body{
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  font-size: 1.6rem;
+  font-family: sans-serif;
+}
+
+button{
+  font-size: 5.6rem;
+  border: none;
+  background: none;
+}
+
+button:hover{
+  cursor: pointer;
+}
+
+main{
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+.flex{
+  display: flex;
+  align-items: center;
+}
+
+.container{
+  gap: 20rem;
+}
+
+#timer{
+  font-size: 9.6rem;
+}
+
+.active{
+  color: var(--btn-bg-active);
+}
+
+.sounds-wraper{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3.2rem;
+}
+
+.sounds-wraper button{
+  width: 14rem;
+  height: 15rem;
+  border-radius: 2.4rem;
+  background-color: var(--btn-bg);
+  padding: 2.4rem;
+}
+
+.volume{
+  position: relative;
+  margin-top: 4rem;
+  height: .4rem;
+  width: 9rem;
+  background-color: var(--primary-color);
+}
+
+.thumb{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  display: block;
+  width: 1.6rem;
+  height: 1.6rem;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+}
+
+.thumb:mousedown{
+  transform: translateX(1px);
+}
+
+.playing .volume, .playing .thumb{
+  background-color: white;
+}
+
+.button-wraper{
+  justify-content: space-between;
+}
+
+.sounds-wraper button.playing{
+  background-color: var(--btn-bg-active);
+  color: white;
+}
+
+#toggle-light-mode{
+  position: absolute;
+  top: 6rem;
+  right: 6rem;
+}
+
+@media (max-width: 1000px) {
+  .container{
+    flex-direction: column;
+    gap: 3rem;
+  }
+}
